@@ -4,16 +4,18 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
   ImageBackground,
-  Image,
+  TouchableOpacity,
+  Platform,
+  KeyboardAvoidingView,
 } from "react-native";
 
 // Define the Start component
 const Start = ({ navigation }) => {
+  // State to hold the name input value
   const [name, setName] = useState("");
+  // State to hold the chosen background color
   const [background, setBackground] = useState("");
-
   return (
     <ImageBackground
       source={require("../img/background-img.png")}
@@ -28,12 +30,15 @@ const Start = ({ navigation }) => {
           onChangeText={setName}
           placeholder="Your Name"
         ></TextInput>
-
         <View style={styles.chooseColorBox}>
           <Text style={styles.chooseColorText}>Choose Background Color:</Text>
           <View style={styles.colorButtonsContainer}>
             {/* Render a TouchableOpacity for each color option */}
             <TouchableOpacity
+              accessible={true}
+              accessibilityLabel="More options"
+              accessibilityHint="Lets you choose to send an image or your geolocation."
+              accessibilityRole="button"
               style={[
                 styles.chooseColor,
                 { backgroundColor: "#090C08" },
@@ -68,7 +73,6 @@ const Start = ({ navigation }) => {
             ></TouchableOpacity>
           </View>
         </View>
-
         {/* Render a TouchableOpacity for starting the chat */}
         <TouchableOpacity
           style={styles.button}
@@ -79,10 +83,12 @@ const Start = ({ navigation }) => {
           <Text style={styles.textButton}>Start Chatting</Text>
         </TouchableOpacity>
       </View>
+      {Platform.OS === "android" ? (
+        <KeyboardAvoidingView behavior="height" />
+      ) : null}
     </ImageBackground>
   );
 };
-
 // Define styles for the component
 const styles = StyleSheet.create({
   imageBackground: {
@@ -106,7 +112,6 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     justifyContent: "space-evenly",
   },
-
   textInput: {
     width: "88%",
     padding: 15,
@@ -153,7 +158,6 @@ const styles = StyleSheet.create({
     borderColor: "#FCD95B",
     borderWidth: 3,
   },
-
   chooseColorText: {
     flex: 1,
     fontSize: 16,
@@ -163,5 +167,4 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
 });
-
 export default Start;
