@@ -47,3 +47,23 @@ Technical Requirements
 + expo-location: ~16.5.5
 + react-native-maps: 1.10.0
 + expo-image-picker: ~14.7.1
+## Setup Instructions
+Follow these steps to get the app running on your local machine:
+
+1- Clone the repository: Use the command https://github.com/solzurch/ChatApp.git to clone the repository to your local machine.
+
+2-Navigate to the project directory: Use the command cd your-repo-name to navigate into the root directory of the project.
+
+3-Install Node.js and npm.
+
+4- Install Expo CLI: Use the command npm install -g expo-cli to install Expo CLI globally on your machine.
+
+5- Install dependencies: Use the command npm install to install all the necessary dependencies for the project.
+
+6- Start the app: Use the command npm start or expo start to start the app. This will open a new browser window with the Expo developer tools.
+
+7- Run the app on your device/emulator: You can either use an Android/iOS emulator or directly run the app on your mobile device using the Expo Go app. Scan the QR code displayed in the Expo developer tools with the Expo Go app to run the app on your device.
+
+Please note that you'll need to have the Expo Go app installed on your device to run the app. You can download it from the App Store or Google Play Store.
+
+Remember to replace your-repo-name with the actual URL and name of your repository.
